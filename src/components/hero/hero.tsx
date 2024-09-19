@@ -4,12 +4,11 @@ const Hero: React.FC = () => {
   return (
     <div className="w-full">
       <Image
-        src={"/hero.jpg"}
+        src={"/hero.png"}
         alt="hero"
-        width={1920}
+        width={1820}
         height={450}
-        className="max-h-screen min-w-full"
-        objectFit="cover"
+        // className="max-h-screen max-w-full"
       />
     </div>
   );
