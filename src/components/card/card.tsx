@@ -1,6 +1,7 @@
 import { FC } from "react";
 import {
   Card as CardComponent,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -22,18 +23,24 @@ const Card: FC<CardProps> = ({
 }: CardProps) => {
   return (
     <CardComponent className="bg-white shadow-none">
-      <CardHeader className="p-0">
+      <div className="relative">
         <Image
-          src={"/hero.jpg"}
+          src={"/hero.png"}
           alt="card"
           width={100}
           height={100}
-          className="max-h-screen min-w-full"
+          className="max-h-screen min-w-full rounded-t-sm"
           objectFit="cover"
         />
-        <CardTitle className="px-3 pt-3">{title}</CardTitle>
-        <CardDescription className="px-3 pb-3">{description}</CardDescription>
+      </div>
+      <CardHeader className="grid gap-1 p-4">
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
+      <CardContent className="flex flex-row justify-between items-center p-4">
+        <p className="text-3xl font-semibold">{price}</p>
+        <p>Day 2 Night 1</p>
+      </CardContent>
     </CardComponent>
   );
 };
