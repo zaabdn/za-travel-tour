@@ -15,13 +15,15 @@ const Header: React.FC = () => {
   return (
     <nav className="flex w-full absolute h-16 top-0 right-0 z-20">
       <div className="container mx-auto flex justify-between items-center">
-        <Image
-          src={"/Header.png"}
-          alt="header"
-          width={1000}
-          height={200}
-          className="mt-3 space-x-4"
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/Header.png"}
+            alt="header"
+            width={1000}
+            height={200}
+            className="mt-3 space-x-4"
+          />
+        </Link>
         {!["/register", "/login"].includes(pathname) && (
           <div className="hidden md:flex space-x-4 items-center">
             {/* <Link href={"/"} className="px-5">

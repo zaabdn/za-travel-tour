@@ -16,22 +16,22 @@ export default async function Home() {
 
   return (
     <div className="h-screen">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start bg-[#F1F1F1]">
         <Hero />
-        <div className="pt-10 overflow-hidden w-full justify-center">
+        <div className="pt-10 overflow-hidden w-full justify-center bg-[#F1F1F1]">
           <HeaderText header="Most Popular" text="description" />
-          <div className="mt-5 h-auto pb-20 flex flex-row grid-rows-3">
+          <div className="mt-5 h-auto pb-20 flex flex-row grid-rows-3 flex-wrap">
             {[0, 1, 2, 3].map((item, i) => (
               <Link
                 href={""}
                 key={i}
-                className="sm:pl-0 md:p-4 mx-auto w-1/3 h-auto"
+                className="sm:pl-0 md:p-4 mx-auto w-1/4 h-auto"
               >
                 <Card
                   title="Gn. Bromo"
                   description="Gunung Bromo atau dalam bahasa Tengger dieja 'Brama', juga disebut Kaldera Tengger, adalah sebuah gunung berapi aktif di Jawa Timur, Indonesia."
                   price="IDR 200.000"
-                  cardImage=""
+                  cardImage="/data1.png"
                 />
               </Link>
             ))}

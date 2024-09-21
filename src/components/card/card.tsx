@@ -22,19 +22,18 @@ const Card: FC<CardProps> = ({
   cardImage,
 }: CardProps) => {
   return (
-    <CardComponent className="bg-white shadow-none">
+    <CardComponent className="bg-white shadow-none border-none w-full">
       <div className="relative">
         <Image
-          src={"/hero.png"}
+          src={cardImage}
           alt="card"
-          width={100}
-          height={100}
-          className="max-h-screen min-w-full rounded-t-sm"
-          objectFit="cover"
+          width={400}
+          height={50}
+          className="rounded-t-sm p-3 bg-white"
         />
       </div>
       <CardHeader className="grid gap-1 p-4">
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-xl font-bold">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-row justify-between items-center p-4">
