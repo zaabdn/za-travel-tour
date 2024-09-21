@@ -1,9 +1,8 @@
-// components/ClientSessionProvider.tsx (Client Component)
-"use client"; // This file is client-side only
+"use client";
 
 import { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
-import { Header } from "@/components"; // Example usage of other client-side components
+import { Header } from "@/components";
 
 export default function ClientSessionProvider({
   children,

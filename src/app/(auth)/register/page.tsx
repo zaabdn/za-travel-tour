@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const RegisterSchema = z.object({
   email: z.string(),
@@ -64,17 +65,24 @@ const Register = () => {
 
   return (
     <section className="bg-white h-screen flex items-center justify-center">
-      <div className="w-[600px]">
+      <div className="w-[400px]">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mt-5">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input
+                      {...field}
+                      className="py-5 focus:border-[#FFAF00] focus:ring-0 focus:outline-none"
+                      style={{
+                        boxShadow: "none",
+                        transition: "border-color 0.2s ease-in-out",
+                      }}
+                    />
                   </FormControl>
                 </FormItem>
               )}
@@ -84,10 +92,17 @@ const Register = () => {
               control={form.control}
               name="fullName"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mt-5">
                   <FormLabel>Full Name</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input
+                      {...field}
+                      className="py-5 focus:border-[#FFAF00] focus:ring-0 focus:outline-none"
+                      style={{
+                        boxShadow: "none",
+                        transition: "border-color 0.2s ease-in-out",
+                      }}
+                    />
                   </FormControl>
                 </FormItem>
               )}
@@ -97,18 +112,38 @@ const Register = () => {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="mt-5">
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <Input
+                      type="password"
+                      {...field}
+                      className="py-5 focus:border-[#FFAF00] focus:ring-0 focus:outline-none"
+                      style={{
+                        boxShadow: "none",
+                        transition: "border-color 0.2s ease-in-out",
+                      }}
+                    />
                   </FormControl>
                 </FormItem>
               )}
             />
 
-            <Button type="submit" className="mt-5">
-              Submit
-            </Button>
+            <div className="flex justify-end">
+              <Button
+                type="submit"
+                className="mt-5 py-5 w-full bg-[#FFAF00] hover:bg-[#e69e02]"
+              >
+                Register
+              </Button>
+            </div>
+
+            <div className="flex flex-row mt-5 justify-center items-center">
+              <p>Already have an account?</p>
+              <Link href="/login" className="ml-1">
+                <p className="text-[#FFAF00]">Login</p>
+              </Link>
+            </div>
           </form>
         </Form>
       </div>
