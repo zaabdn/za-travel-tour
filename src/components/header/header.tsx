@@ -20,7 +20,7 @@ const Header: React.FC = () => {
             src={"/Header.png"}
             alt="header"
             width={1000}
-            height={200}
+            height={300}
             className="mt-3 space-x-4"
           />
         </Link>

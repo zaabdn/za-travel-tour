@@ -18,12 +18,12 @@ export default async function Home() {
     <div className="h-screen">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start bg-[#F1F1F1]">
         <Hero />
-        <div className="py-10 overflow-hidden w-full justify-center bg-[#F1F1F1]">
+        <div className="p-10 overflow-hidden w-full justify-center bg-[#F1F1F1]">
           <HeaderText header="Most Popular" text="description" />
           <div className="mt-5 h-auto pb-20 flex flex-row grid-rows-3 flex-wrap">
             {[0, 1, 2, 3].map((item, i) => (
               <Link
-                href={""}
+                href={`/detail/${i}`}
                 key={i}
                 className="sm:pl-0 md:p-4 mx-auto w-1/4 h-auto"
               >
