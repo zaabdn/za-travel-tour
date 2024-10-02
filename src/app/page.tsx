@@ -1,6 +1,29 @@
-import { Card, Footer, HeaderText, Hero } from "@/components";
+import { Card, CategoryTrip, Footer, HeaderText, Hero } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
+
+const categories = [
+  {
+    title: "Beach Getaways",
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    title: "Mountain Adventures",
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    title: "City Breaks",
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    title: "Countryside Retreats",
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    title: "Cultural Tours",
+    image: "/placeholder.svg?height=200&width=300",
+  },
+];
 
 const getUser = async () => {
   const res = await fetch(`${process.env.BASE_URL}/api/users`, {
@@ -19,6 +42,13 @@ export default async function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start bg-[#F1F1F1]">
         <Hero />
         <div className="p-10 overflow-hidden w-full justify-center bg-[#F1F1F1]">
+          <div className="container mx-auto py-8">
+            <div className="flex overflow-x-auto space-x-4 pb-4">
+              {categories.map((item, i) => (
+                <CategoryTrip index={i} category={item} />
+              ))}
+            </div>
+          </div>
           <HeaderText header="Most Popular" text="description" />
           <div className="mt-5 h-auto pb-20 flex flex-row grid-rows-3 flex-wrap">
             {[0, 1, 2, 3].map((item, i) => (
