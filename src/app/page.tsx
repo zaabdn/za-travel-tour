@@ -2,28 +2,11 @@ import { Card, CategoryTrip, Footer, HeaderText, Hero } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 
-const categories = [
-  {
-    title: "Beach Getaways",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Mountain Adventures",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "City Breaks",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Countryside Retreats",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Cultural Tours",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-];
+interface categories {
+  id: number;
+  name: string;
+  image: string;
+}
 
 const getUser = async () => {
   const res = await fetch(`${process.env.BASE_URL}/api/users`, {
@@ -34,8 +17,20 @@ const getUser = async () => {
   return json;
 };
 
+const getCategoryTrip = async () => {
+  const res = await fetch(`${process.env.BASE_URL}/api/category`, {
+    next: { revalidate: 0 },
+  });
+  const json = res.json();
+
+  return json;
+};
+
 export default async function Home() {
   // const user = await getUser();
+  const categories = await getCategoryTrip();
+
+  console.log(categories.data);
 
   return (
     <div className="h-screen">
@@ -44,7 +39,7 @@ export default async function Home() {
         <div className="p-10 overflow-hidden w-full justify-center bg-[#F1F1F1]">
           <div className="container mx-auto py-8">
             <div className="flex overflow-x-auto space-x-4 pb-4">
-              {categories.map((item, i) => (
+              {categories.data.map((item: categories, i: number) => (
                 <CategoryTrip index={i} category={item} />
               ))}
             </div>
