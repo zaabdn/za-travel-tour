@@ -1,3 +1,4 @@
+import { Header } from "@/components";
 import ClientSessionProvider from "@/components/client-session-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -30,7 +31,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClientSessionProvider>{children}</ClientSessionProvider>
+        <ClientSessionProvider>
+          <Header />
+          {children}
+        </ClientSessionProvider>
         <Toaster />
       </body>
     </html>

@@ -1,8 +1,8 @@
 "use client";
 
-import { ReactNode } from "react";
 import { SessionProvider } from "next-auth/react";
-import { Header } from "@/components";
+import { ReactNode } from "react";
+import { Toaster } from "sonner";
 
 export default function ClientSessionProvider({
   children,
@@ -11,8 +11,8 @@ export default function ClientSessionProvider({
 }) {
   return (
     <SessionProvider>
-      <Header />
       {children}
+      <Toaster />
     </SessionProvider>
   );
 }

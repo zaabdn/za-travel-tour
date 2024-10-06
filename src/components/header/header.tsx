@@ -10,9 +10,11 @@ import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
   const { data: user, status } = useSession();
 
-  const pathname = usePathname();
+  const navigateTrips =
+    user?.user?.role === "ADMIN" ? "/admin/trips" : "/trips";
 
   return (
     <nav className="flex w-full absolute h-16 top-0 right-0 z-20">
@@ -28,12 +30,15 @@ const Header: React.FC = () => {
         </Link>
         {!["/register", "/login"].includes(pathname) && (
           <div className="hidden md:flex space-x-4 items-center">
-            {/* <Link href={"/"} className="px-5">
-              <p className="text-gray-500 hover:text-rose-500">Home</p>
+            <Link href={"/"} className="px-5">
+              <p className="text-white hover:text-[#FFAF00]">Home</p>
+            </Link>
+            <Link href={navigateTrips} className="px-5">
+              <p className="text-white hover:text-[#FFAF00]">Trips</p>
             </Link>
             <Link href={"/"} className="px-5">
-              <p className="text-gray-500 hover:text-rose-500">Packet</p>
-            </Link> */}
+              <p className="text-white hover:text-[#FFAF00]">Transactions</p>
+            </Link>
             {user?.user?.email && status == "authenticated" ? (
               <Popover>
                 <PopoverTrigger asChild className="cursor-pointer">
