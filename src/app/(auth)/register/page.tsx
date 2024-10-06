@@ -1,12 +1,8 @@
 "use client";
 
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -15,8 +11,10 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import * as z from "zod";
 
 const RegisterSchema = z.object({
   email: z.string(),
@@ -27,6 +25,7 @@ const RegisterSchema = z.object({
 type FormData = z.infer<typeof RegisterSchema>;
 
 const Register = () => {
+  // const router = useRouter();
   // const session = getServerSession();
   const form = useForm({
     resolver: zodResolver(RegisterSchema),
@@ -49,13 +48,12 @@ const Register = () => {
         body: JSON.stringify({ email, fullName, password }),
       });
 
-      console.log("regis", response);
-
       if (!response.ok) {
         throw new Error("");
       }
 
       toast({ title: "Register Successfully" });
+      // router.push("/login");
     } catch (error) {}
   };
 

@@ -1,6 +1,6 @@
+import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 import prisma from "../../../../prisma/client";
-import { hash } from "bcryptjs";
 
 export async function GET() {
   const users = await prisma.user.findMany();
