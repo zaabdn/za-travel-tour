@@ -16,6 +16,8 @@ const Header: React.FC = () => {
   const navigateTrips =
     user?.user?.role === "ADMIN" ? "/admin/trips" : "/trips";
 
+  if (pathname.includes("/admin")) return;
+
   return (
     <nav className="flex w-full absolute h-16 top-0 right-0 z-20">
       <div className="container mx-auto flex justify-between items-center">

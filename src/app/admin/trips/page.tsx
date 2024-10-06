@@ -1,6 +1,7 @@
 "use client";
 
 import { DataTable } from "@/components";
+import Sidebar from "@/components/sidebar/sidebar";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -171,8 +172,8 @@ const AdminTrips = async () => {
     <div className="w-full">
       {/* <Loading isVisible={isLoading} /> */}
       {/* <Header isAdmin={true} /> */}
-      {/* <Sidebar /> */}
-      <div className="flex flex-col mx-20 mt-24 pr-8">
+      <Sidebar />
+      <div className="flex flex-col ml-72 mt-24 pr-8">
         <div className="w-full">
           <Button
             className="w-1/6 flex ml-auto"
