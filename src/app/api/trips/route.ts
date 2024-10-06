@@ -19,7 +19,7 @@ export async function GET() {
 export async function POST(req: Request) {
   const { fullName, email, password } = await req.json();
 
-  const trip = await prisma.trip.create({
+  const trip = await prisma.trips.create({
     data: {
       fullName,
       email,

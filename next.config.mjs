@@ -2,8 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTwpszP9ENTPPGPiGNSJlog_YIW3dk6CBkg_hjegRkNWjZSR4xT0uFBvzMYUxtoWf4B9X4JDootf2AOl6I9ZGF1wPfsRKEWvsF7I6hjpg",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "https://encrypted-tbn2.gstatic.com",
+        pathname: "/licensed-image",
+      },
+      {
+        protocol: "https",
+        hostname: "https://www.bluebirdgroup.com",
+        pathname: "/storage/articles",
+      },
     ],
   },
 };
